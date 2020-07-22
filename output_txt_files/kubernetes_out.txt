@@ -1,1 +1,17 @@
-<paste log output from Kubernetes-mediated prediction, here>
+ kubectl run house --restart=Never --image zarakmughal/house_predictor --port=80
+pod/house created
+
+E:\kasten.io>kubectl get pod
+NAME    READY   STATUS              RESTARTS   AGE
+house   0/1     ContainerCreating   0          10s
+
+E:\kasten.io>kubectl get pod --watch
+NAME    READY   STATUS    RESTARTS   AGE
+house   1/1     Running   0          109s
+
+E:\kasten.io>kubectl port-forward house 8000:80
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+Handling connection for 8000
+Handling connection for 8000
